@@ -38,9 +38,8 @@ const HomePage = () => {
 
   useEffect(() => {
     if (
-      (window.matchMedia &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches) ||
-      localStorage.getItem('theme') === 'dark'
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
     ) {
       setDarkMode(true);
     }
@@ -48,10 +47,8 @@ const HomePage = () => {
 
   useEffect(() => {
     if (darkMode) {
-      localStorage.setItem('theme', 'dark');
       document.documentElement.classList.add('dark');
     } else {
-      localStorage.setItem('theme', 'light');
       document.documentElement.classList.remove('dark');
     }
   }, [darkMode]);
@@ -113,7 +110,7 @@ const HomePage = () => {
                 Services
               </div>
               <div className="flex flex-col md:flex-row justify-between text-cyan-600  gap-5 flex-wrap px-10 md:p-4">
-                <div className="shadow-md dark:shadow-sm shadow-cyan-200 dark:shadow-slate-400 md:w-[30%] px-10 py-6 md:p-3 flex flex-col items-center gap-3">
+                <div className="shadow-md dark:shadow-sm shadow-cyan-200 dark:shadow-slate-600 md:w-[30%] px-10 py-6 md:p-3 flex flex-col items-center gap-3">
                   <div className="h-24">
                     <img src="/vite.svg" className="h-full" />
                   </div>
@@ -125,7 +122,7 @@ const HomePage = () => {
                     interactive user interfaces for web applications.
                   </div>
                 </div>
-                <div className="shadow-md dark:shadow-sm shadow-cyan-200 dark:shadow-slate-400 md:w-[30%] px-10 py-6 md:p-3 flex flex-col items-center gap-3">
+                <div className="shadow-md dark:shadow-sm shadow-cyan-200 dark:shadow-slate-600 md:w-[30%] px-10 py-6 md:p-3 flex flex-col items-center gap-3">
                   <div className="h-24">
                     <img src="/node.svg" className="h-full" />
                   </div>
@@ -138,7 +135,7 @@ const HomePage = () => {
                     processing and API functionality.
                   </div>
                 </div>
-                <div className="shadow-md dark:shadow-sm shadow-cyan-200 dark:shadow-slate-400 md:w-[30%] px-10 py-6 md:p-3  flex flex-col items-center gap-3">
+                <div className="shadow-md dark:shadow-sm shadow-cyan-200 dark:shadow-slate-600 md:w-[30%] px-10 py-6 md:p-3  flex flex-col items-center gap-3">
                   <div className="h-24">
                     <img src="/maintenance.svg" className="h-full" />
                   </div>
