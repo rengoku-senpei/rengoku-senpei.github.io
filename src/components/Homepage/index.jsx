@@ -6,6 +6,31 @@ import { DarkIco, EmailIcon, LightIco, PhoneIco } from './Icons';
 const HomePage = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [isLoadingImage, setIsLoadingImage] = useState(true);
+  const skills = [
+    'HTML',
+    'CSS',
+    'JS',
+    'React',
+    'NodeJs',
+    'NestJs',
+    'MongoDB',
+    'Postgresql',
+    'Sequelize',
+    'Mongoose',
+    'Redux',
+    'Zustand',
+    'React Routing',
+    'Bootstrap',
+    'Tailwind CSS',
+    'Axios',
+    'Postman',
+    'DBeaver',
+    'Stripe',
+    'Socket.io',
+    'JSON',
+    'API Design',
+    'API Integration',
+  ];
 
   const handleImageLoad = () => {
     setIsLoadingImage(false);
@@ -46,7 +71,7 @@ const HomePage = () => {
               />
             </div>
 
-            <div className="flex flex-col px-[20px] py-[20px] md:px-[80px] md:py-[40px] lg:px-[120px] lg:py-[40px] gap-2">
+            <div className="flex flex-col px-[20px] py-[20px] md:px-[80px] md:py-[40px] lg:px-[120px] lg:py-[40px] gap-2 bg-white mt-4">
               <div className="text-cyan-700 md:text-2xl text-lg font-burtons  text-center underline underline-offset-8">
                 Overview
               </div>
@@ -106,6 +131,21 @@ const HomePage = () => {
                     performance of the web application.
                   </div>
                 </div>
+              </div>
+            </div>
+            <div className="flex flex-col px-[20px] py-[20px] md:px-[80px] md:py-[40px] lg:px-[120px] lg:py-[40px] gap-5 bg-white mt-4">
+              <div className="text-cyan-700 md:text-2xl text-lg font-burtons  text-center underline underline-offset-8">
+                Familiar Technologies/Skills
+              </div>
+              <div className="flex gap-3 flex-wrap items-center justify-center">
+                {skills.map((e, i) => (
+                  <div
+                    className="border border-cyan-500 md:p-2 p-1 rounded-md text-cyan-900 md:w-[150px] text-center shadow-md shadow-cyan-200 w-[110px] md:text-base text-sm"
+                    key={i}
+                  >
+                    {e}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
