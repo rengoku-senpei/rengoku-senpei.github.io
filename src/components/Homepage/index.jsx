@@ -1,8 +1,15 @@
 import { useState } from 'react';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import { DarkIco, EmailIcon, LightIco, PhoneIco } from './Icons';
 
 const HomePage = () => {
   const [darkMode, setDarkMode] = useState(false);
+  const [isLoadingImage, setIsLoadingImage] = useState(true);
+
+  const handleImageLoad = () => {
+    setIsLoadingImage(false);
+  };
 
   return (
     <div className="bg-cyan-50 min-h-screen">
@@ -25,9 +32,17 @@ const HomePage = () => {
         <main className="flex flex-col h-3/5">
           <div className="flex flex-col md:py-10 py-4">
             <div className="lg:h-56 md:h-40 h-32 flex justify-center mt-10">
+              {isLoadingImage && (
+                <Skeleton
+                  circle
+                  className="h-full rounded-full p-[2px] border-cyan-300 border-2 lg:!w-[210px] md:!w-[150px] !w-[120px]"
+                />
+              )}
               <img
                 className="h-full rounded-full p-[2px] border-cyan-300 border-2"
                 src="./Me.jpg"
+                onLoad={handleImageLoad} // Handle image load event
+                style={{ display: isLoadingImage ? 'none' : 'block' }}
               />
             </div>
 
