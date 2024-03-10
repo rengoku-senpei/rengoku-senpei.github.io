@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { DarkIco, EmailIcon, LightIco, PhoneIco } from './Icons';
+import { TypeAnimation } from 'react-type-animation';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -57,16 +59,34 @@ const HomePage = () => {
     <div className="bg-cyan-50 dark:dark:bg-slate-800 min-h-screen">
       <div className="h-full">
         <nav className="flex lg:px-[80px] md:px-[30px] px-[15px] md:py-10 justify-between h-1/5 dark:bg-slate-900 bg-cyan-700">
-          <div className="font-burtons lg:text-3xl md:text-xl text-lg h-100 flex flex-col justify-center text-white">
-            Ben Mannathara
+          <div className="flex flex-col justify-center">
+            <div className="font-burtons lg:text-3xl md:text-2xl text-xl h-100 flex flex-col justify-center text-white">
+              Ben Mannathara
+            </div>
+            <div className="font-mono text-slate-200 lg:text-lg md:text-base text-[12px]">
+              <TypeAnimation
+                sequence={[
+                  'Welcome to my portfolio!',
+                  1000,
+                  "Hi, I'm Ben Mannathara",
+                  1000,
+                ]}
+                wrapper="span"
+                speed={50}
+                style={{ display: 'inline-block' }}
+                repeat={Infinity}
+              />
+            </div>
           </div>
           <div className="flex items-center gap-3">
             <div onClick={() => setDarkMode(!darkMode)} type="button">
               {darkMode ? <DarkIco /> : <LightIco />}
             </div>
             <div>
-              <button className="my-5 dark:bg-slate-700 dark:text-white bg-white text-cyan-700 text-sm rounded-md md:px-5 md:py-2 py-1 px-3">
-                Resume
+              <button className="my-5 dark:bg-slate-700 dark:text-white bg-white text-cyan-700 text-sm rounded-md md:px-5 md:py-2 py-1 px-3 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300">
+                <Link to="/Resume.pdf" target="_blank" download>
+                  Resume
+                </Link>
               </button>
             </div>
           </div>
@@ -92,7 +112,7 @@ const HomePage = () => {
               <div className="text-cyan-700 md:text-2xl text-lg font-burtons  text-center underline underline-offset-8 dark:text-slate-200">
                 Overview
               </div>
-              <div className="lg:py-5 lg:px-10 lg:text-xl md:text-base text-sm font-poppins text-cyan-700 indent-20 font-medium md:leading-8 leading-[20px] dark:text-slate-400">
+              <div className="lg:py-5 lg:px-10 lg:text-xl md:text-base text-sm font-poppins text-cyan-700 font-medium md:leading-8 leading-[20px] dark:text-slate-400">
                 As a seasoned React-Node web developer specializing in
                 full-stack development, I deliver exceptional services across
                 both frontend and backend domains. With expertise in crafting
@@ -110,7 +130,7 @@ const HomePage = () => {
                 Services
               </div>
               <div className="flex flex-col md:flex-row justify-between text-cyan-600  gap-5 flex-wrap px-10 md:p-4">
-                <div className="shadow-md dark:shadow-sm shadow-cyan-200 dark:shadow-slate-600 md:w-[30%] px-10 py-6 md:p-3 flex flex-col items-center gap-3">
+                <div className="shadow-md dark:shadow-sm shadow-cyan-200 dark:shadow-slate-600 md:w-[30%] px-10 py-6 md:p-3 flex flex-col items-center gap-3 transition ease-in delay-150 hover:scale-110 duration-300 hover:translate-y-1">
                   <div className="h-24">
                     <img src="/vite.svg" className="h-full" />
                   </div>
@@ -122,7 +142,7 @@ const HomePage = () => {
                     interactive user interfaces for web applications.
                   </div>
                 </div>
-                <div className="shadow-md dark:shadow-sm shadow-cyan-200 dark:shadow-slate-600 md:w-[30%] px-10 py-6 md:p-3 flex flex-col items-center gap-3">
+                <div className="shadow-md dark:shadow-sm shadow-cyan-200 dark:shadow-slate-600 md:w-[30%] px-10 py-6 md:p-3 flex flex-col items-center gap-3 transition ease-in delay-150 hover:scale-110 duration-300 hover:translate-y-1">
                   <div className="h-24">
                     <img src="/node.svg" className="h-full" />
                   </div>
@@ -135,7 +155,7 @@ const HomePage = () => {
                     processing and API functionality.
                   </div>
                 </div>
-                <div className="shadow-md dark:shadow-sm shadow-cyan-200 dark:shadow-slate-600 md:w-[30%] px-10 py-6 md:p-3  flex flex-col items-center gap-3">
+                <div className="shadow-md dark:shadow-sm shadow-cyan-200 dark:shadow-slate-600 md:w-[30%] px-10 py-6 md:p-3  flex flex-col items-center gap-3 transition ease-in delay-150 hover:scale-110 duration-300 hover:translate-y-1">
                   <div className="h-24">
                     <img src="/maintenance.svg" className="h-full" />
                   </div>
